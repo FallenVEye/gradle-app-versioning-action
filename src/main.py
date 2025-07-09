@@ -30,4 +30,8 @@ if is_snapshot:
 config["version"] = newVersion
 config.write()
 
-print(newVersion)
+save_to_gh_output = os.getenv("INPUT_SAVE_VERSION_TO_GH_OUTPUT").casefold() == "true"
+
+if (save_to_gh_output):
+    file = open(os.getenv("GITHUB_OUTPUT"))
+    file.write("version=" + newVersion + "\n")

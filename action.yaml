@@ -13,6 +13,10 @@ inputs:
     description: 'Add commit hash to version. Useful when publishing to maven or similar repo'
     required: false
     default: false
+  save_version_to_gh_output:
+    description: 'Shoud action save calculated version to $GITHUB_OUTPUT file? If so, version can be accessed by steps.id.outputs.version'
+    required: false
+    default: false
 
 runs:
   using: 'docker'
