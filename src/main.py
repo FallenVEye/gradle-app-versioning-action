@@ -37,5 +37,5 @@ if (save_to_gh_output):
     path = os.getenv("GITHUB_OUTPUT")
     if path is None:
         warnings.warn("$GITHUB_OUTPUT is null")
-    file = open(path)
+    file = open(path, "w")
     file.write("version=" + newVersion + "\n")
