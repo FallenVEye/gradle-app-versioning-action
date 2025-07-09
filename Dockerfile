@@ -7,4 +7,4 @@ RUN apt update
 RUN apt upgrade -y
 RUN apt install -y git
 
-ENTRYPOINT ["python", "./main.py"]
+ENTRYPOINT ["python", "/usr/src/app/main.py"]
