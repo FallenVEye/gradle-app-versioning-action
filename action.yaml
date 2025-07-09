@@ -6,7 +6,7 @@ inputs:
     description: 'Should the new version be a snapshot'
     required: false
     default: false
-  version-type:
+  version_type:
     description: 'New version type. One of: major, minor, patch'
     required: true
 
