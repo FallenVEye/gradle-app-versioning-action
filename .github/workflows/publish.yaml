@@ -3,9 +3,8 @@
 name: 'Publish workflow'
 
 on: 
-  push:
-    branches:
-      - master
+  release:
+    types: [published]
 
 jobs:
   publish:
@@ -17,7 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Publish
         id: publish
         uses: actions/publish-immutable-action@0.0.3
