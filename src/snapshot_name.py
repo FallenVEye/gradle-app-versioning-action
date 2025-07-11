@@ -12,5 +12,5 @@ def getSnapshotName():
     else:
         snapshot_name = repo_name.removeprefix("feature/").replace("/", "-").replace("_", "-")
         if is_unique:
-            snapshot_name += str(repo.head.commit)
+            snapshot_name += "-" + str(repo.head.commit)
         return snapshot_name
