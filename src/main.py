@@ -4,6 +4,9 @@ from configobj import ConfigObj
 from pystreamapi import Stream
 from snapshot_name import getSnapshotName
 import warnings
+import subprocess
+
+subprocess.run(["git", "config", "--global", "--add", "safe.directory", "/github/workspace"])
 
 version_type = os.getenv("INPUT_VERSION_TYPE").casefold() 
 is_snapshot = os.getenv("INPUT_SNAPSHOT").casefold() == "true"
