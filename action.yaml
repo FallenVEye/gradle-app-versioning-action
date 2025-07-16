@@ -10,9 +10,12 @@ inputs:
     description: 'New version type. One of: major, minor, patch'
     required: true
   unique_snapshot:
-    description: 'Add commit hash to version. Useful when publishing to maven or similar repo'
+    description: |
+      Add commit hash to version. Useful when publishing to maven or similar repo
+      Options:
+        - commit    | unique by commit hash 
+        - date-time | unique by date-time of action run
     required: false
-    default: false
   save_version_to_gh_output:
     description: 'Shoud action save calculated version to $GITHUB_OUTPUT file? If so, version can be accessed by steps.id.outputs.version'
     required: false

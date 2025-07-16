@@ -1,16 +1,25 @@
 
 import os
+import datetime
 from git import Repo
 
 def getSnapshotName():
-    is_unique = os.getenv("INPUT_UNIQUE_SNAPSHOT")
-
+    
     repo = Repo()
-    repo_name = repo.active_branch.name
-    if not repo_name.startswith("feature/"):
+    branch_name = repo.active_branch.name
+    if not branch_name.startswith("feature/"):
         return ""
     else:
-        snapshot_name = repo_name.removeprefix("feature/").replace("/", "-").replace("_", "-")
-        if is_unique:
-            snapshot_name += "-" + str(repo.head.commit)
+        snapshot_name = branch_name.removeprefix("feature/").replace("/", "-").replace("_", "-")
+
+        match os.getenv("INPUT_UNIQUE_SNAPSHOT").casefold():
+            case "":
+                pass
+            case "commit":
+                snapshot_name += "-" + repo.head.commit
+            case "date-time":
+                snapshot_name += "-" + datetime.datetime.now().strftime("%d-%m-%H-%M")
+            case _:
+                raise ValueError("Unknown unique snapshot type")
+
         return snapshot_name
