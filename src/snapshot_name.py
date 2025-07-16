@@ -16,7 +16,7 @@ def getSnapshotName():
             case "":
                 pass
             case "commit":
-                snapshot_name += "-" + repo.head.commit
+                snapshot_name += "-" + str(repo.head.commit)
             case "date-time":
                 snapshot_name += "-" + datetime.datetime.now().strftime("%d-%m-%H-%M")
             case _:
