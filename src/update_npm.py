@@ -28,3 +28,5 @@ def updateNpm(version_type: str, is_snapshot: bool):
 
     with open("package.json", "w") as file:
         json.dump(package, file, indent=2)
+
+    return newVersion
