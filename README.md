@@ -8,8 +8,36 @@ This action is used to update version property of project according to semver
 # Explanation
 ## Gradle
 Updates ```version``` entry in ```gradle.properties``` file
+Before:
+``` json
+{
+    ***
+    "version": "2.6.3"
+    ***
+}
+```
+After:
+``` json
+{
+    ***
+    "version": "2.7.0-SNAPSHOT-add-endpoint"
+    ***
+}
+```
 ## NPM
 Updates ```version``` entry in ```package.json``` file
+Before:
+``` properties
+***
+version = 2.6.3
+***
+```
+After:
+``` properties
+***
+version = 2.7.0-SNAPSHOT-add-endpoint
+***
+```
 
 # Usage
 ``` yaml
