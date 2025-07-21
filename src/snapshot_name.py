@@ -3,7 +3,7 @@ import os
 import datetime
 from git import Repo
 
-def getSnapshotName():
+def get_snapshot_name():
     
     repo = Repo()
     branch_name = repo.active_branch.name

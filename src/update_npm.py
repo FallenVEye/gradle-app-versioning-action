@@ -1,11 +1,12 @@
 
 import json
 import semver
-from snapshot_name import getSnapshotName
+from snapshot_name import get_snapshot_name
+from pathlib import Path
 
-def updateNpm(version_type: str, is_snapshot: bool):
+def updateNpm(version_type: str, is_snapshot: bool, npm_file: Path):
 
-    with open("package.json", "r") as file:
+    with npm_file.open() as file:
         package = json.load(file)
     
     version = semver.Version.parse(package["version"])
@@ -20,13 +21,13 @@ def updateNpm(version_type: str, is_snapshot: bool):
         case _:
             raise ValueError("Unknown version type")
 
-    newVersion = str(version)
+    new_version = str(version)
     if is_snapshot:
-        newVersion += "-SNAPSHOT-" + getSnapshotName()
+        new_version += "-SNAPSHOT-" + get_snapshot_name()
 
-    package["version"] = newVersion
+    package["version"] = new_version
 
-    with open("package.json", "w") as file:
+    with npm_file.open("w") as file:
         json.dump(package, file, indent=2)
 
-    return newVersion
+    return new_version

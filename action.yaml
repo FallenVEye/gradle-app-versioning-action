@@ -9,6 +9,10 @@ inputs:
   version_type:
     description: 'New version type. One of: major, minor, patch'
     required: true
+  context:
+    description: relative to github_work_dir path to root of the project (e.g. where are the file you want to update) 
+    required: false
+    default: .
   unique_snapshot:
     description: |
       Add commit hash to version. Useful when publishing to maven or similar repo

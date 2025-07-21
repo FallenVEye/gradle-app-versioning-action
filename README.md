@@ -52,6 +52,12 @@ uses: FallenVEye/versioning-action@master
     # Default: False
     snapshot: ''
 
+    # Used to specify root dir of the project, e.g. where build.gradle/package.json are
+    # 
+    # Not required
+    # Default: .
+    context: ''
+
     # What next version shoud be? major|minor|patch
     #
     # Required
